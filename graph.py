@@ -3,6 +3,12 @@ import seaborn as sb
 import pandas as pd
 import matplotlib.pyplot as plt
 
+import platform
+from matplotlib import font_manager, rc
+plt.rcParams['axes.unicode_minus'] = False
+if platform.system() == 'Linux':
+    rc('font', family='NanumGothic')
+
 def run_graph () :
     df=pd.read_csv('./data/Pokemon.csv')
 
