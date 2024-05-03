@@ -62,9 +62,9 @@ def run_graph () :
         sb.regplot(x='세대', y='속도', data=df, ax=ax)
 
         st.pyplot(fig)  
+    
 
-
-    st.text('속성별 스탯 비교')
+    st.text('속성별 평균스탯 비교')
 
     radio_menu = ['체력','공격','방어','특수공격','특수방어','속도']
 
