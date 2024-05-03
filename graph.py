@@ -68,7 +68,7 @@ def run_graph () :
 
     radio_menu = ['체력','공격','방어','특수공격','특수방어','속도']
 
-    choice=st.radio('선택하세요',radio_menu)
+    choice=st.selectbox('선택하세요',radio_menu,key=1)
     if choice == radio_menu [0] :
         average_health = df.groupby('속성')['체력'].mean()
         st.bar_chart(average_health)
