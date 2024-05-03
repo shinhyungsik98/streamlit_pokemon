@@ -18,51 +18,45 @@ def run_graph () :
     radio_menu = ['체력','공격','방어','특수공격','특수방어','속도']
 
     choice=st.selectbox('선택하세요',radio_menu)
-    if choice == radio_menu [0] :
-        fig, ax = plt.subplots()
-        sb.regplot(x='세대', y='체력', data=df, ax=ax)
-
-        st.pyplot(fig)
+    if choice == radio_menu[0]:
+       fig, ax = plt.subplots()
+       sb.boxplot(x='세대', y='체력', data=df, ax=ax)
+       ax.set_title('각 세대에 체력 분포')
+       st.pyplot(fig)
 
         
 
     elif choice == radio_menu [1] :
         fig, ax = plt.subplots()
-        sb.regplot(x='세대', y='공격', data=df, ax=ax)
-
+        sb.boxplot(x='세대', y='공격', data=df, ax=ax)
+        ax.set_title('각 세대별 공격력 분포')
         st.pyplot(fig)
-
 
     elif choice == radio_menu [2] :
         fig, ax = plt.subplots()
-        sb.regplot(x='세대', y='방어', data=df, ax=ax)
-
+        sb.boxplot(x='세대', y='방어', data=df, ax=ax)
+        ax.set_title('각 세대별 방어력 분포')
         st.pyplot(fig)
 
     elif choice == radio_menu [3] :
         fig, ax = plt.subplots()
-        sb.regplot(x='세대', y='속도', data=df, ax=ax)
-
+        sb.boxplot(x='세대', y='특수공격', data=df, ax=ax)
+        ax.set_title('각 세대별 특수공격력 분포')
         st.pyplot(fig)
 
     elif choice == radio_menu [4] :
         fig, ax = plt.subplots()
-        sb.regplot(x='세대', y='특수공격', data=df, ax=ax)
+        sb.boxplot(x='세대', y='특수방어', data=df, ax=ax)
+        ax.set_title('각 세대별 특수방어력 분포')
+        st.pyplot(fig)
 
-        st.pyplot(fig) 
 
     elif choice == radio_menu [5] :
         fig, ax = plt.subplots()
-        sb.regplot(x='세대', y='특수방어', data=df, ax=ax)
+        sb.boxplot(x='세대', y='속도', data=df, ax=ax)
+        ax.set_title('각 세대별 속도 분포')
+        st.pyplot(fig)
 
-        st.pyplot(fig)  
-
-    elif choice == radio_menu [6] :
-        fig, ax = plt.subplots()
-        sb.regplot(x='세대', y='속도', data=df, ax=ax)
-
-        st.pyplot(fig)  
-    
 
     st.text('속성별 평균스탯 비교')
 
