@@ -3,6 +3,12 @@ import pandas as pd
 import seaborn as sb
 import matplotlib.pyplot as plt
 
+df=pd.read_csv('./data/Pokemon.csv')
+
+def search_pokemon(input_text, df):
+    filtered_data = df[df['이름'].str.contains(input_text, case=False)]
+    return filtered_data
+
 
 
 def run_eda() :
@@ -12,12 +18,13 @@ def run_eda() :
     st.subheader('이름 검색')
     search_name = st.text_input('포켓몬 이름을 입력하세요')
     if search_name:
-        result = df[df['이름'] == search_name]
-        if not result.empty:
-            st.write('포켓몬 정보')
-            st.write(result)
+        filtered_data = search_pokemon(search_name, df)
+        if not filtered_data.empty:
+            st.write("검색 결과:")
+            st.write(filtered_data)
         else:
-            st.write('해당 이름을 찾을 수 없습니다.')
+            st.write("일치하는 포켓몬이 없습니다.")
+
 
 
     st.subheader('전체 포켓몬 정보/ 통계치 보기')
