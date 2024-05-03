@@ -10,4 +10,13 @@ def main () :
 
     if choice == menu[0]:
         run_home()
+
     
+    elif choice == menu[1] :
+        pass
+    elif choice == menu[2] :
+        pass
+
+
+if __name__ == '__main__' :
+    main()
