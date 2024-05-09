@@ -11,6 +11,8 @@ def main () :
     menu = ['메인화면','분석정보','파워랭크','그래프']
 
     choice = st.sidebar.selectbox('메뉴',menu)
+    image_path = ('./image/poke4.jpg')
+    st.sidebar.image(image_path)
 
     if choice == menu[0]:
         run_home()
