@@ -1,6 +1,7 @@
 import streamlit as st
 import seaborn as sb
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 
 import platform
@@ -12,8 +13,38 @@ if platform.system() == 'Linux':
 def run_graph () :
     df=pd.read_csv('./data/Pokemon.csv')
 
-    st.subheader('그래프 분석')
-    st.text('세대별 포켓몬 스탯분포')
+
+    st.image('./image/poke3.png')
+
+    st.subheader('스탯별 개체수 분포도')
+
+    numeric_columns = ['체력','공격','방어','특수공격','특수방어','속도']
+    pokemon_numeric = df[numeric_columns].to_numpy()
+
+
+    # 선택 상자에 숫자 열 표시
+    selected_column = st.selectbox("원하는 데이터 선택", numeric_columns)
+
+    # 선택한 열에 대한 인덱스 가져오기
+    selected_index = numeric_columns.index(selected_column)
+
+    # 선택한 열에 대한 히스토그램 생성
+    plt.hist(pokemon_numeric[:, selected_index], bins=20, color='skyblue', edgecolor='black')
+    plt.title(f"{selected_column}")
+    plt.xlabel(selected_column)
+    plt.ylabel('개체수')
+    plt.xlabel('스탯수치')
+
+    
+
+    # 스트림릿에 플롯 출력
+    st.pyplot(plt.gcf())
+
+
+
+
+
+    st.subheader('세대별 포켓몬 스탯분포')
 
     radio_menu = ['체력','공격','방어','특수공격','특수방어','속도']
 
@@ -58,7 +89,7 @@ def run_graph () :
         st.pyplot(fig)
 
 
-    st.text('속성별 평균스탯 비교')
+    st.subheader('속성별 평균스탯 비교')
 
     radio_menu = ['체력','공격','방어','특수공격','특수방어','속도']
 

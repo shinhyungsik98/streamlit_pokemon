@@ -54,21 +54,23 @@ def run_eda() :
 
 
 
+    # Pokemon 데이터 설정
+    labels = ['Water', 'Normal', 'Grass', 'Bug', 'Psychic', 'Fire', 'Electric', 'Rock', 'Other']
+    sizes = [112, 98, 70, 69, 57, 52, 44, 44, 175]
+    colors = ['SkyBlue', '#E8BEAC', '#7CFC00', 'Lightgreen', 'Purple', 'Red', 'Yellow', 'Brown', 'Pink']
+    explode = (0, 0, 0.1, 0, 0, 0, 0, 0, 0)  # 3번째 파이만 띄움
 
-    '''st.subheader('상관관계 분석')
-    st.text('컬럼들을 2개 이상 선택하면, 컬럼들의 상관계수를 보여드립니다.')
+    # Streamlit 앱 제목 설정
+    st.subheader("각 포켓몬 유형의 비율")
 
-    corr_column_list = ['속성','속성2','총합','체력','공격','방어','특수공격','특수방어','속도','세대']
-    selected_columns = st.multiselect('컬럼을 선택하세요',corr_column_list)
+    # 파이차트 플롯 생성
+    fig, ax = plt.subplots()
+    ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=90)
+    ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+    # Streamlit에 플롯 출력
+    st.pyplot(fig)
 
 
-    if len(selected_columns) >=2 :
-        fig1 =sb.pairplot(data=df,vars=selected_columns)
-        st.pyplot(fig1)
 
-        #2 상관관계 보여준다
-        st.dataframe((df[selected_columns]).corr())
-
-    else :
-        st. text('컬럼은 2개 이상 선택해야 합니다.')'''
 
