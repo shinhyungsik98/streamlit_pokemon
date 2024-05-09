@@ -3,7 +3,6 @@ from home import run_home
 from eda import run_eda
 from ml import run_ml
 from graph import run_graph
-from cluster import run_cluster
 
 def main () :
     st.title('포켓몬 데이터 측정')
