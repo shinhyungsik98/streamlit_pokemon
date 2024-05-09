@@ -58,14 +58,14 @@ def run_eda() :
     labels = ['Water', 'Normal', 'Grass', 'Bug', 'Psychic', 'Fire', 'Electric', 'Rock', 'Other']
     sizes = [112, 98, 70, 69, 57, 52, 44, 44, 175]
     colors = ['SkyBlue', '#E8BEAC', '#7CFC00', 'Lightgreen', 'Purple', 'Red', 'Yellow', 'Brown', 'Pink']
-    explode = (0, 0, 0.1, 0, 0, 0, 0, 0, 0)  # 3번째 파이만 띄움
+    explode = (0, 0, 0, 0, 0, 0, 0, 0, 0)  # 3번째 파이만 띄움
 
     # Streamlit 앱 제목 설정
-    st.subheader("각 포켓몬 유형의 비율")
+    st.subheader("각 포켓몬 타입의 비율")
 
     # 파이차트 플롯 생성
     fig, ax = plt.subplots()
-    ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=90)
+    ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
     ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
     # Streamlit에 플롯 출력
